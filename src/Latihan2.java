@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -37,9 +40,10 @@ public class Latihan2 extends javax.swing.JFrame {
         Nama = new javax.swing.JTextField();
         Alamat = new javax.swing.JTextField();
         Kelas = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Hasil = new javax.swing.JTextArea();
+        oke = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -72,14 +76,14 @@ public class Latihan2 extends javax.swing.JFrame {
         getContentPane().add(Kelas);
         Kelas.setBounds(129, 104, 197, 31);
 
-        jButton1.setText("OKE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        hapus.setText("HAPUS");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                hapusActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(139, 178, 53, 23);
+        getContentPane().add(hapus);
+        hapus.setBounds(210, 180, 70, 23);
 
         Hasil.setColumns(20);
         Hasil.setRows(5);
@@ -88,17 +92,46 @@ public class Latihan2 extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(41, 207, 285, 96);
 
+        oke.setText("OKE");
+        oke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(oke);
+        oke.setBounds(139, 178, 53, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String nama = Nama.getText();
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
+
+           Kelas.setText("");
+           Absen.setText("");
+           Alamat.setText("");
+           Nama.setText("");
+    }//GEN-LAST:event_hapusActionPerformed
+
+    private void okeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okeActionPerformed
+ String nama = Nama.getText();
 String absen = Absen.getText();
 String kelas = Kelas.getText();
 String alamat = Alamat.getText();
 
-Hasil.setText("Nama siswa : "+nama+"\n"+"Absen : "+absen+"\n"+"Kelas"+kelas+"\n"+"Alamat siswa : "+alamat);
-    }//GEN-LAST:event_jButton1ActionPerformed
+if(Nama.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Harap Isikan Nama");
+    }
+else if(Absen.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Harap Isikan Absen");
+    }
+else if(Kelas.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Harap Isikan Kelas");
+    }
+else if(Alamat.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Harap Isikan Alamat");
+    }
+Hasil.setText("Nama siswa : "+nama+"\n"+"Absen : "+absen+"\n"+"Kelas : "+kelas+"\n"+"Alamat siswa : "+alamat);
+    }//GEN-LAST:event_okeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,12 +174,13 @@ Hasil.setText("Nama siswa : "+nama+"\n"+"Absen : "+absen+"\n"+"Kelas"+kelas+"\n"
     private javax.swing.JTextArea Hasil;
     private javax.swing.JTextField Kelas;
     private javax.swing.JTextField Nama;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton hapus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton oke;
     // End of variables declaration//GEN-END:variables
 }
